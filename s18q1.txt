@@ -1,0 +1,53 @@
+html File :
+<html>
+<body>
+<form action="A.php" method="POST">
+1.Reverse the order of each element’s key-value pair
+<input type="radio" name="opt1" value="o1"><br>
+2.traverse the element in the random order
+<input type="radio" name="opt1" value="o2"><br>
+3. Convert the array elements into individual variables.
+<input type="radio" name="opt1" value="o3"><br>
+4.Display the elements of an array along with key.
+<input type="radio" name="opt1" value="o4"><br>
+<input type="submit" value="ok">
+</form>
+</body>
+</html>
+
+php File :
+
+<?php
+$a = array('one' => 'aa', 'two' => 'bb', 'three' => 'cc', 'four' => 'dd', 'five' => 'ee');
+$opt = $_POST['opt1'];
+
+if ($opt == 'o1') {
+    echo "Original array is:<br>";
+    print_r($a);
+    echo "<br>The flipped elements of the array:<br>";
+    $fp = array_flip($a);
+    print_r($fp);
+}
+
+else if ($opt == 'o2') {
+    echo "Random order elements are:<br>";
+    shuffle($a); // ✅ fixed spelling (was shufÒe)
+    print_r($a);
+}
+
+else if ($opt == 'o3') {
+    extract($a);
+    echo "After converting array into variables:<br>";
+    echo $one . " " . $two . " " . $three . " " . $four . " " . $five;
+}
+
+else if ($opt == 'o4') {
+    echo "The elements of array with their keys:<br>";
+    print_r($a);
+}
+?>
+
+
+
+
+
