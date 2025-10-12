@@ -1,0 +1,27 @@
+<html>
+<body>
+<table border= 1>
+	<tr>
+<td colspan="4" align=center >list of book </td></tr>
+<tr>
+<td rowspan=2 align="center" width="60">item no    </td>
+<td rowspan=2 align="center" width="250">Item name </td>
+<td colspan=2  width="150"  align="center"> price
+<tr>
+<td align="center">Rs </td>
+<td align="center">paise</td>
+</td>
+</tr>
+</tr>
+<tr>
+<td align="center">l</td>
+<td >programming in python </td>
+<td align="center">500</td><td align="center">50</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td>programming in java </td>
+<td align="center">345</td><td align="center">00</td>
+</tr>
+</body>
+</html>
