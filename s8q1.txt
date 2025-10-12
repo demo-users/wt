@@ -1,0 +1,62 @@
+html file:
+<html>
+<head>
+  <title>Run PHP Function on Radio Button</title>
+</head>
+<body>
+  <h2>Select an Operation</h2>
+  <form action="A.php" method="post">
+    <input type="radio" name="choice" value="check_begin"> Check Beginning<br>
+    <input type="radio" name="choice" value="check_position"> Find Position<br>
+    <input type="radio" name="choice" value="compare_3char"> Compare First 3 Characters<br><br>
+
+    Enter String 1: <input type="text" name="str1"><br><br>
+    Enter String 2: <input type="text" name="str2"><br><br>
+
+    <input type="submit" value="Run Function">
+  </form>
+</body>
+</html>
+
+
+php file:
+<?php
+$s1 = $_POST['str1'];
+$s2 = $_POST['str2'];
+$choice = $_POST['choice']; // radio button se value aayegi
+
+function check_beginning($s1, $s2) {
+    $pos = strpos($s1, $s2);
+    if ($pos === 0)
+        echo "$s2 is present at the beginning of $s1<br>";
+    else
+        echo "$s2 is not present at the beginning of $s1<br>";
+}
+
+function find_position($s1, $s2) {
+    $pos = strpos($s1, $s2);
+    if ($pos !== false)
+        echo "Position of $s2 in $s1 is $pos<br>";
+    else
+        echo "$s1 not found in $s2<br>";
+}
+
+function compare_first3($s1, $s2) {
+    $cmp = strncmp($s1, $s2, 3);
+    if ($cmp == 0)
+        echo "Both strings match in first 3 characters<br>";
+    else
+        echo "Strings do not match in first 3 characters<br>";
+}
+
+// Radio button ke hisaab se function call
+if ($choice == "check_begin") {
+    check_beginning($s1, $s2);
+} elseif ($choice == "check_position") {
+    find_position($s1, $s2);
+} elseif ($choice == "compare_3char") {
+    compare_first3($s1, $s2);
+} else {
+    echo "Please select an option!";
+}
+?>
