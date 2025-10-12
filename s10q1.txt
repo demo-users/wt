@@ -1,0 +1,82 @@
+html file:
+<html>
+<head>
+  <title>Run Specific PHP Function</title>
+</head>
+<body>
+  <h2>Select the operation you want to perform:</h2>
+
+  <form action="A.php" method="post">
+    Enter X: <input type="text" name="t1"><br><br>
+    Enter Y: <input type="text" name="t2"><br><br>
+
+    <input type="radio" name="operation" value="mod"> Modulus<br>
+    <input type="radio" name="operation" value="power"> Power<br>
+    <input type="radio" name="operation" value="sum"> Sum of first X numbers<br>
+    <input type="radio" name="operation" value="fact"> Factorial of Y<br><br>
+
+    <input type="submit" value="Run">
+  </form>
+</body>
+</html>
+
+
+php file:
+ <?php
+function mod($x, $y)
+{
+    $z = $x % $y;
+    echo "Mod value of $x & $y is $z<br>";
+}
+
+function power($x, $y)
+{
+    $f = 1;
+    $n1 = $y;
+    while ($n1 > 0) {
+        $f = $f * $x;
+        $n1--;
+    }
+    echo "$x raised to the power $y = $f<br>";
+}
+
+function sum($x)
+{
+    $sum = 0;
+    $i = 1;
+    while ($i <= $x) {
+        $sum = $sum + $i;
+        $i++;
+    }
+    echo "Sum of first $x numbers is $sum<br>";
+}
+
+function fact($y)
+{
+    $i = 1;
+    $f = 1;
+    while ($i <= $y) {
+        $f = $f * $i;
+        $i++;
+    }
+    echo "Factorial of $y is $f<br>";
+}
+
+// Input values
+$x = $_POST['t1'];
+$y = $_POST['t2'];
+$operation = $_POST['operation'];
+
+// Radio button ke hisaab se function call
+if ($operation == "mod") {
+    mod($x, $y);
+} elseif ($operation == "power") {
+    power($x, $y);
+} elseif ($operation == "sum") {
+    sum($x);
+} elseif ($operation == "fact") {
+    fact($y);
+} else {
+    echo "Please select an operation.";
+}
+?>
