@@ -1,0 +1,29 @@
+import pandas as pd
+
+df = pd.read_csv('heights_weights.csv')
+print(df.describe())
+
+heights_weights.csv :
+
+Height,Weight
+65,112
+67,120
+70,150
+62,115
+68,130
+72,180
+66,135
+64,125
+69,160
+71,175
+63,118
+65,122
+68,140
+70,165
+67,130
+66,128
+69,155
+72,190
+64,123
+65,130
+
