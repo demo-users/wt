@@ -1,0 +1,26 @@
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+
+data = pd.read_csv("Data.csv")
+ohe = OneHotEncoder()
+encoded_country = ohe.fit_transform(data[['Country']]).toarray()
+encoded_df = pd.DataFrame(encoded_country, columns=ohe.get_feature_names_out(['Country']))
+le = LabelEncoder()
+data['Purchased'] = le.fit_transform(data['Purchased'])
+final_data = pd.concat([encoded_df, data.drop('Country', axis=1)], axis=1)
+print(final_data)
+
+
+Data.csv:
+
+Country,Age,Salary,Purchased
+France,44,72000,No
+Spain,27,48000,Yes
+Germany,30,54000,No
+Spain,38,61000,No
+Germany,40,63777,Yes
+France,35,58000,Yes
+Spain,48,73750,No
+France,50,79000,Yes
+Germany,37,67000,No
+
