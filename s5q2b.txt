@@ -1,0 +1,25 @@
+import pandas as pd
+
+data = pd.read_csv("User_Data.csv")
+
+print("Shape of DataFrame:", data.shape)
+print("Number of Rows:", data.shape[0])
+print("Number of Columns:", data.shape[1])
+print("\nData Types:\n", data.dtypes)
+print("\nFeature Names:\n", list(data.columns))
+print("\nDescription of Data:\n", data.describe())
+
+User_Data.csv :
+
+UserID,Gender,Age,Salary,Purchased
+1,Male,19,19000,0
+2,Male,35,20000,0
+3,Female,26,43000,1
+4,Female,27,57000,1
+5,Male,19,76000,0
+6,Female,27,58000,1
+7,Female,27,84000,1
+8,Male,32,15000,0
+9,Male,25,33000,0
+10,Female,35,65000,1
+
