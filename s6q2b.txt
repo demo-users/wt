@@ -1,0 +1,22 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('Data.csv')
+
+plt.plot(df['name'], df['salary'], marker='o')
+plt.xlabel('Name')
+plt.ylabel('Salary')
+plt.title('Name vs Salary')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+Data.csv :
+
+name,salary,age
+Ravi,50000,25
+Sneha,53000,30
+Amit,60000,12
+Neha,55000,28
+Raj,52000,26
+
