@@ -1,0 +1,13 @@
+import matplotlib.pyplot as plt
+
+subjects = ['Math', 'Physics', 'Chemistry', 'Biology', 'English']
+marks = [85, 78, 92, 88, 76]
+
+plt.figure(figsize=(8,6))
+plt.bar(subjects, marks, color=['skyblue','lightgreen','salmon','gold','violet'], edgecolor='black')
+plt.title("Marks Obtained in Subjects")
+plt.xlabel("Subjects")
+plt.ylabel("Marks")
+plt.ylim(0, 100)
+plt.show()
+
