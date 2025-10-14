@@ -1,0 +1,20 @@
+import pandas as pd
+from sklearn.preprocessing import LabelEncoder
+
+data = {
+    'Country': ['France', 'Spain', 'Germany', 'Spain', 'Germany', 'France', 'Spain', 'France'],
+    'Purchased': ['Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No']
+}
+
+df = pd.DataFrame(data)
+df.to_csv("data.csv", index=False)
+
+# OneHot Encoding for 'Country'
+df_onehot = pd.get_dummies(df, columns=['Country'])
+print("OneHot Encoded Data:\n", df_onehot)
+
+# Label Encoding for 'Purchased'
+le = LabelEncoder()
+df['Purchased'] = le.fit_transform(df['Purchased'])
+print("\nLabel Encoded Data:\n", df)
+
