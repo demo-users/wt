@@ -1,0 +1,19 @@
+import pandas as pd
+
+df = pd.read_csv('Data.csv')
+
+df.loc[:, 'salary'] = df['salary'].fillna(df['salary'].mean())
+df.loc[:, 'age'] = df['age'].fillna(df['age'].mean())
+
+print("After replacing missing values:")
+print(df)
+
+Data.csv :
+
+name,salary,age
+Ravi,50000,25
+Sneha,,30
+Amit,60000,
+Neha,55000,28
+Raj,52000,26
+
