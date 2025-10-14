@@ -1,0 +1,31 @@
+import pandas as pd
+import numpy as np
+#Create DataFrame with 10 rows
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Helen', 'Ian', 'Julia'],
+    'Age': [22, 23, 21, 24, 22, 23, 21, 24, 22, 23],
+    'Percentage': [85, 78, 92, 88, 76, 81, 79, 90, 84, 87]
+}
+df = pd.DataFrame(data)
+print("Initial DataFrame:\n", df)
+
+#Shape, number of rows-columns, data types, feature names, description
+print("\nShape of DataFrame:", df.shape)
+print("\nNumber of Rows:", df.shape[0], "Columns:", df.shape[1])
+print("\nData Types:\n", df.dtypes)
+print("\nFeature Names:", df.columns.tolist())
+print("\nDescription of Data:\n", df.describe())
+
+#Add 5 rows with duplicate and missing values, add 'Remarks' column
+extra_data = {
+    'Name': ['Alice', 'Kevin', None, 'Liam', 'Eva'],
+    'Age': [22, 25, 24, None, 22],
+    'Percentage': [85, 80, None, 90, 76],
+    'Remarks': [None]*5
+}
+extra_df = pd.DataFrame(extra_data)
+df['Remarks'] = None
+df_final = pd.concat([df, extra_df], ignore_index=True)
+print("\nDataFrame after adding extra rows with duplicates, missing values and 'Remarks' column:\n")
+print(df_final)
+
