@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initialscale=1.0">
+<title>String Operations</title>
+</head>
+<body>
+<h1>String Operations Form</h1>
+<form action="s19q1.php" method="post">
+<label for="bigString">Enter a Sentence:</label><br>
+<textarea id="bigString" name="bigString" required>
+</textarea><br><br>
+<label for="smallString">Enter a Word:</label><br>
+<input type="text" id="smallString" name="smallString"
+required><br><br>
+<label for="position">Enter Position (0-indexed):</label><br>
+<input type="number" id="position" name="position"
+required><br><br>
+<label for="numChars">Number of Characters to Remove:
+</label><br>
+<input type="number" id="numChars" name="numChars"
+required><br><br>
+<label for="replacePosition">Replace Position (0-indexed):
+</label><br>
+<input type="number" id="replacePosition"
+name="replacePosition" required><br><br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+
+PHP code :
+
+   <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $bigString = $_POST['bigString'];
+    $smallString = $_POST['smallString'];
+    $position = (int)$_POST['position'];
+    $numChars = (int)$_POST['numChars'];
+    $replacePosition = (int)$_POST['replacePosition'];
+
+    // a. Delete a part from the big string
+    $deletedString = substr($bigString, 0, $position) . substr($bigString, $position + $numChars);
+
+    // b. Insert the small string into the big string at the specified position
+    $insertedString = substr($bigString, 0, $position) . $smallString . substr($bigString, $position);
+
+    // c. Replace part of the big string with the small string at the specified position
+    $replacedString = substr($bigString, 0, $replacePosition) . $smallString . substr($bigString, $replacePosition + $numChars);
+
+    // Display results
+    echo "<h1>Results</h1>";
+    echo "<p>Original Sentence: <strong>$bigString</strong></p>";
+    echo "<p>Deleted String: <strong>$deletedString</strong></p>";
+    echo "<p>Inserted String: <strong>$insertedString</strong></p>";
+    echo "<p>Replaced String: <strong>$replacedString</strong></p>";
+} else {
+    echo "<p>No data received.</p>";
+}
+?>
