@@ -1,0 +1,41 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.random.randint(10, 100, 50)
+
+plt.figure(figsize=(12, 10))
+plt.suptitle("Visualization of Random Integer Data", fontsize=16, fontweight='bold')
+
+plt.subplot(2, 2, 1)
+plt.plot(data, color='royalblue', marker='o', linestyle='-', linewidth=2, markersize=6)
+plt.title("Line Chart", fontsize=14)
+plt.xlabel("Index")
+plt.ylabel("Value")
+plt.grid(True, linestyle='--', alpha=0.7)
+
+plt.subplot(2, 2, 2)
+plt.scatter(range(len(data)), data, color='tomato', s=80, edgecolors='black')
+plt.title("Scatter Plot", fontsize=14)
+plt.xlabel("Index")
+plt.ylabel("Value")
+plt.grid(True, linestyle='--', alpha=0.7)
+
+plt.subplot(2, 2, 3)
+plt.hist(data, bins=10, color='mediumseagreen', edgecolor='black', alpha=0.8)
+plt.title("Histogram", fontsize=14)
+plt.xlabel("Value Range")
+plt.ylabel("Frequency")
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+plt.subplot(2, 2, 4)
+plt.boxplot(data, patch_artist=True,
+            boxprops=dict(facecolor='gold', color='black'),
+            medianprops=dict(color='red', linewidth=2),
+            whiskerprops=dict(color='black'),
+            capprops=dict(color='black'))
+plt.title("Box Plot", fontsize=14)
+plt.ylabel("Value")
+
+plt.tight_layout(rect=[0, 0, 1, 0.96])
+plt.show()
+

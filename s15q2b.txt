@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+
+subjects = ['Math', 'Physics', 'Chemistry', 'Biology', 'English']
+marks = [85, 78, 92, 88, 76]
+
+plt.figure(figsize=(7, 7))
+plt.pie(marks, labels=subjects, autopct='%1.1f%%', startangle=140, colors=['skyblue','lightgreen','salmon','gold','violet'], explode=[0.05]*5, shadow=True)
+plt.title("Marks Distribution by Subject", fontsize=16, fontweight='bold')
+plt.show()
+
