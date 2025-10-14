@@ -1,0 +1,9 @@
+import numpy as np
+arr = np.array([[1, 2, 3],
+                [4, 5, 6]])
+flat_arr = arr.flatten()
+weights = np.array([0.1, 0.2, 0.3, 0.1, 0.2, 0.1])
+weighted_avg = np.average(flat_arr, weights=weights)
+print("Flattened Array:", flat_arr)
+print("Weighted Average:", weighted_avg)
+
