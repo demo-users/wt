@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Append Files</title>
+</head>
+<body>
+    <h2>Append File Content</h2>
+
+    <!-- Form to accept two files -->
+    <form method="post" enctype="multipart/form-data">
+        Source File: <input type="file" name="file1" required><br><br>
+        Destination File: <input type="file" name="file2" required><br><br>
+        <input type="submit" name="submit" value="Append">
+    </form>
+
+<?php
+if (isset($_POST['submit'])) {
+
+    // Check if files are uploaded
+    if (isset($_FILES['file1']) && isset($_FILES['file2'])) {
+
+        $source = $_FILES['file1']['tmp_name'];
+        $dest = $_FILES['file2']['tmp_name'];
+
+        // Read source file
+        $content = file_get_contents($source);
+
+        // Append to destination file
+        file_put_contents($dest, $content, FILE_APPEND);
+
+        echo "<p>Content of <strong>" . $_FILES['file1']['name'] . "</strong> has been appended to <strong>" . $_FILES['file2']['name'] . "</strong>.</p>";
+
+        // Optional: let user download the modified destination file
+        echo "<p><a href='data://text/plain;base64," . base64_encode(file_get_contents($dest)) . "' download='" . $_FILES['file2']['name'] . "'>Download Appended File</a></p>";
+    } else {
+        echo "<p>Please upload both files.</p>";
+    }
+}
+?>
+</body>
+</html>
