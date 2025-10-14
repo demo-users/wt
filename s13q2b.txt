@@ -1,0 +1,14 @@
+import numpy as np
+
+arr = np.array([[1, 5, 9],
+                [2, 8, 4],
+                [7, 3, 6]])
+
+flat_arr = arr.flatten()
+max_value = flat_arr.max()
+min_value = flat_arr.min()
+
+print("Flattened Array:", flat_arr)
+print("Maximum Value:", max_value)
+print("Minimum Value:", min_value)
+
