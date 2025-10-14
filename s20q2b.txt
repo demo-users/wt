@@ -1,0 +1,15 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.random.randint(10, 100, 50)
+data_with_outliers = np.append(data, [200, -50])
+
+plt.figure(figsize=(8, 6))
+plt.boxplot(data_with_outliers, patch_artist=True, 
+            boxprops=dict(facecolor='violet', color='black'),
+            flierprops=dict(marker='o', markerfacecolor='red', markersize=10, linestyle='none'))
+plt.title("Box Plot with Outliers")
+plt.ylabel("Values")
+plt.grid(True, linestyle='--', alpha=0.7)
+plt.show()
+
