@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spring Temperatures</title>
+</head>
+<body>
+    <h2>Spring Month High Temperatures</h2>
+
+    <?php
+    // 1. Create an array of 15 high temperatures (°C)
+    $temps = [18, 20, 22, 19, 21, 23, 24, 20, 22, 25, 26, 21, 23, 19, 24];
+
+    // 2. Calculate the average high temperature
+    $sum = array_sum($temps);
+    $average = $sum / count($temps);
+
+    // 3. Find the five warmest high temperatures
+    $temps_sorted = $temps; // make a copy
+    rsort($temps_sorted); // sort descending
+    $warmest = array_slice($temps_sorted, 0, 5);
+
+    // 4. Display results
+    echo "<p>High temperatures: " . implode(", ", $temps) . " °C</p>";
+    echo "<p>Average high temperature: " . number_format($average, 2) . " °C</p>";
+    echo "<p>Five warmest temperatures: " . implode(", ", $warmest) . " °C</p>";
+    ?>
+</body>
+</html>
