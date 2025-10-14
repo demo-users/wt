@@ -1,0 +1,13 @@
+import pandas as pd
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva', 'Frank', 'Grace', 'Helen', 'Ian', 'Julia'],
+    'Age': [25, 30, 28, 35, 26, 32, 29, 31, 27, 33],
+    'Salary': [50000, 60000, 55000, 70000, 52000, 62000, 58000, 61000, 54000, 63000],
+    'Department': ['HR', 'IT', 'Finance', 'IT', 'HR', 'Finance', 'IT', 'HR', 'Finance', 'IT']
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+
